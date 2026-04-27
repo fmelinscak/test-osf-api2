@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit to OSF</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Submit Your Information</h1>
+
+    <!-- Shown when config.js still has placeholder values -->
+    <section id="config-error" class="hidden" role="alert">
+      <div class="alert alert-error">
+        <strong>Configuration required.</strong>
+        Please set <code>OSF_PROJECT_ID</code> and <code>OSF_CLIENT_ID</code>
+        in <code>config.js</code> before using this app.
+        See <a href="README.md">README.md</a> for step-by-step instructions.
+      </div>
+    </section>
+
+    <!-- Login prompt -->
+    <section id="auth-section">
+      <p>Please log in with your OSF account to submit your information.</p>
+      <button id="login-btn" class="btn btn-primary">Login with OSF</button>
+    </section>
+
+    <!-- Submission form (shown after successful login) -->
+    <section id="form-section" class="hidden">
+      <div class="user-info">
+        Logged in as: <strong id="user-display-name"></strong>
+        <button id="logout-btn" class="btn btn-secondary btn-sm">Logout</button>
+      </div>
+
+      <form id="submission-form" novalidate>
+        <div class="form-group">
+          <label for="name-input">Name</label>
+          <input
+            type="text"
+            id="name-input"
+            name="name"
+            placeholder="Enter your full name"
+            required
+            autocomplete="name"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="age-input">Age</label>
+          <input
+            type="number"
+            id="age-input"
+            name="age"
+            placeholder="Enter your age"
+            required
+            min="0"
+            max="150"
+          >
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </section>
+
+    <!-- Dynamic status / feedback messages -->
+    <section id="status-section" aria-live="polite"></section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
