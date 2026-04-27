@@ -253,11 +253,13 @@
     el.submitBtn.disabled = true;
     showStatus('Submitting…', 'info');
 
+    // JSON payload keys use snake_case — the stored files are consumed by
+    // external tools (Python, R, spreadsheets) where snake_case is conventional.
     var payload = {
-      name:        name,
-      age:         age,
+      name:         name,
+      age:          age,
       submitted_at: new Date().toISOString(),
-      osf_user_id: currentUserId,
+      osf_user_id:  currentUserId,
     };
 
     uploadSubmission(currentUserId, payload)

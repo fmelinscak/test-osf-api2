@@ -21,7 +21,7 @@ const CONFIG = {
 
   // ── OSF service endpoints (do not change for the main osf.io instance) ──
 
-  /** CAS / OAuth2 authorisation endpoint */
+  /** CAS / OAuth2 authorization endpoint */
   OSF_AUTH_URL: 'https://accounts.osf.io/oauth2/authorize',
 
   /** JSON-API endpoint */
